@@ -16,11 +16,11 @@ module BoolMatch::Matcher
     end
 
     def blank? obj
-      respond_to?(:empty?) ? obj.empty? : !self
+      obj.respond_to?(:empty?) ? obj.empty? : !obj
     end
 
     def present? obj
-      !blank?
+      !blank?(obj)
     end
   end
 
@@ -38,11 +38,11 @@ module BoolMatch::Matcher
 
   class Blank < Boolean
     def === other
-      blank? obj
+      blank? other
     end
   end
 
-  class Presense < Boolean
+  class Present < Boolean
     def === other
       present? other
     end
