@@ -4,6 +4,14 @@ require "bool_match/matcher"
 
 module BoolMatch
   include Matcher
+
+  [Truthy, Falsy, Blank, Present, Any].each do |klass|
+    name = klass.to_s.split('::').last.downcase
+    define_method(name) do
+      klass.new
+    end
+  end
+  alias_method :_, :any
 end
 
 #Regexp#===があるので正規表現もいける
