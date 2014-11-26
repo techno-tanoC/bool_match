@@ -14,6 +14,8 @@ module BoolMatch
   alias_method :_, :any
 end
 
+#Regexp#===があるので正規表現もいける
+#Proc#===があるのでProcもいける
 class Array
   def === other
     if self.size == other.size

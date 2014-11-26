@@ -3,7 +3,7 @@
 module BoolMatch::Matcher
   class Boolean
     def === other
-      raise "override me"
+      raise NotImplementedError.new("implement #===")
     end
 
     private
